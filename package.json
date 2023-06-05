@@ -1,0 +1,21 @@
+{
+  "name": "gitcommits",
+  "version": "1.0.0",
+  "description": "A CLI that generate git commit messages with openAi",
+  "main": "dist/cli.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js"
+  },
+  "bin": {
+    "gitcommits": "./dist/cli.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}
