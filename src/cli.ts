@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
+import gitcommits from "./commands/gitcommits.js";
 
 yargs(hideBin(process.argv))
   .command(
@@ -8,7 +9,7 @@ yargs(hideBin(process.argv))
     "gitcommits",
     () => {},
     (args) => {
-        console.log('default command')
+        gitcommits()
     }
   )
   //   .command('serve [port]', 'start the server', (yargs) => {
