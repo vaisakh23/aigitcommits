@@ -4,9 +4,11 @@ import { getStagedChanges } from "../utils/getStagedChanges.js";
 export default async () => {
   const gitDiff = await getStagedChanges();
   const openai = new OpenAIApi(
-    new Configuration({ apiKey: process.env.OPENAI_API_KEY })
+    new Configuration({
+      apiKey: process.env.OPEN_API_KEY,
+    })
   );
-  openai.createChatCompletion({
+  const commit_msg = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
       {
@@ -17,4 +19,6 @@ export default async () => {
       { role: "user", content: gitDiff },
     ],
   });
+  if (commit_msg)
+  console.log(commit_msg.data.choices[0].message?.content)
 };
