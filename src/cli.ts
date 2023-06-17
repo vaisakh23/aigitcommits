@@ -6,21 +6,14 @@ import config from "./commands/config.js";
 
 yargs(hideBin(process.argv))
   .usage("usage: $0 <command> [<options>]")
-  .command(
-    "$0",
-    "gitcommits",
-    () => {},
-    (args) => {
-      gitcommits();
-    }
-  )
+  .command("$0", "gitcommits", () => {}, gitcommits)
   .command(
     "config [key] [value]",
     "Manage configuration",
     (yargs) => {
       return yargs
         .option("get", {
-          describe: "get api key",
+          describe: "get key value",
         })
         .positional("key", {
           type: "string",
