@@ -3,13 +3,13 @@ import path from "path";
 import os from "os";
 import { CmdLogs } from "./cmdLog.js";
 
-const configPath = path.join(os.homedir(), ".gitcommits");
+const configPath = path.join(os.homedir(), ".gitcommit");
 
 const configParsers = {
   OPENAI_KEY(value: string) {
     if (!value) {
       CmdLogs.errMsg(
-        "Please set your OpenAI API key via `gitcommits config OPENAI_KEY=<your token>`"
+        "Please set your OpenAI API key via `gitcommit config OPENAI_KEY=<your token>`"
       );
     }
     if (!value.startsWith('sk-')) {
