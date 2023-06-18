@@ -1,13 +1,17 @@
-import { getConfig, setConfigs } from "../utils/config.js";
+import { CmdLogs } from "../utils/cmdLog.js";
+import { getConfig, setConfigs, validConfigKey } from "../utils/config.js";
 
 const config = async (args: any) => {
-  if (args.get) {
-    const config = await getConfig();
-    console.log(config[args.get])
-    return
+  const { get, key, value } = args;
+  if (get && validConfigKey(get)) {
+    const config = await getConfig(get);
+    CmdLogs.result(config[get] as string);
+  } else if (!validConfigKey(key)) {
+    CmdLogs.errMsg(`Invalid config property: ${get}`);
   }
-  setConfigs(args.key, args.value)
-  return 
+  if (key && value) {
+    setConfigs(key, value);
+  }
 };
 
 export default config;
