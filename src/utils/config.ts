@@ -61,6 +61,6 @@ export const setConfigs = async (key: string, value: string) => {
   if (!validConfigKey(key)) {
     CmdLogs.errMsg(`Invalid config property: ${key}`);
   }
-  config[key] = value;
+  config[key] = configParsers[key as ConfigKeys](value);
   await fs.writeFile(configPath, JSON.stringify(config), "utf8");
 };
