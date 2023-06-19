@@ -11,6 +11,7 @@ yargs(hideBin(process.argv))
     "gitcommits",
     (yargs) => {
       return yargs.option("all", {
+        alias: "a",
         describe: "stage all files for commit",
       });
     },
@@ -21,7 +22,9 @@ yargs(hideBin(process.argv))
     "Manage configuration",
     (yargs) => {
       return yargs
+        .usage("usage: $0 config [<options>]")
         .option("get", {
+          alias: "g",
           describe: "get key value",
         })
         .positional("key", {
@@ -30,6 +33,11 @@ yargs(hideBin(process.argv))
         })
         .positional("value", {
           type: "string",
+        })
+        .requiresArg("get")
+        .fail((msg, err, yargs) => {
+          console.log("Sorry, no component name was given.");
+          console.log(yargs.help())
         });
     },
     config
