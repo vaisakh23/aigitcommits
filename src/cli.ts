@@ -6,7 +6,16 @@ import config from "./commands/config.js";
 
 yargs(hideBin(process.argv))
   .usage("usage: $0 <command> [<options>]")
-  .command("$0", "gitcommits", () => {}, gitcommits)
+  .command(
+    "$0",
+    "gitcommits",
+    (yargs) => {
+      return yargs.option("all", {
+        describe: "stage all files for commit",
+      });
+    },
+    gitcommits
+  )
   .command(
     "config [key] [value]",
     "Manage configuration",
