@@ -11,9 +11,14 @@
   "bin": {
     "gitcommit": "./dist/cli.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "ai",
+		"git",
+		"commit",
+    "openAI"
+  ],
+  "author": "vaisakh23",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.2.5",
     "@types/yargs": "^17.0.24",
@@ -24,5 +29,10 @@
     "execa": "^7.1.1",
     "openai": "^3.2.1",
     "yargs": "^17.7.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vaisakh23/aigitcommits.git"
+  },
+  "files": ["dist"]
 }
