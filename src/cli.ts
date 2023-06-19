@@ -36,8 +36,9 @@ yargs(hideBin(process.argv))
         })
         .requiresArg("get")
         .fail((msg, err, yargs) => {
-          console.log("Sorry, no component name was given.");
-          console.log(yargs.help())
+          console.log(msg);
+          // console.log(yargs.help())
+          console.log(err)
         });
     },
     config
