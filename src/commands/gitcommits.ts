@@ -1,8 +1,9 @@
 import { CmdLogs } from "../utils/cmdLog.js";
-import { getStagedChanges } from "../utils/getStagedChanges.js";
+import { getStagedChanges, stageAll } from "../utils/git .js";
 import { generateCommitMessage } from "../utils/openai.js";
 
 const gitcommits = async (args: any) => {
+  if (args.all) await stageAll();
   const gitDiff = await getStagedChanges();
   if (!gitDiff) {
     CmdLogs.errMsg("No staged changes found. Stage your changes manually.");
