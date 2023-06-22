@@ -6,7 +6,7 @@ const gitcommits = async (args: any) => {
   if (args.all) await stageAll();
   const gitDiff = await getStagedChanges();
   if (!gitDiff) {
-    CmdLogs.errMsg("No staged changes found. Stage your changes manually.");
+    CmdLogs.errMsg("No staged changes found \nstage all changes with the `--all` flag.");
   }
   const commit_msg = await generateCommitMessage(gitDiff);
   if (!commit_msg) {
