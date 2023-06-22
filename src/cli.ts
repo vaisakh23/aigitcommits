@@ -26,6 +26,7 @@ yargs(hideBin(process.argv))
         })
         .positional("key", {
           type: "string",
+          default: false
         })
         .positional("value", {
           type: "string",

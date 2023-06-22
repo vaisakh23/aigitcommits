@@ -6,11 +6,13 @@ const config = async (args: any) => {
   if (get && validConfigKey(get)) {
     const config = await getConfig(get);
     CmdLogs.result(config[get] as string);
-  } else if (!validConfigKey(key)) {
+  } else if (key && !validConfigKey(key)) {
     CmdLogs.errMsg(`Invalid config property: ${get}`);
   }
   if (key && value) {
     setConfigs(key, value);
+  } else {
+    CmdLogs.errMsg('Missing params \nusage: aigitcommit config <key> <value>')
   }
 };
 
