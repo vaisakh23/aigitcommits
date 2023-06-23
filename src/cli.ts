@@ -11,6 +11,7 @@ yargs(hideBin(process.argv))
     "gitcommits",
     (yargs) => {
       return yargs.option("all", {
+        alias: "a",
         describe: "stage all files for commit",
       });
     },
@@ -21,7 +22,9 @@ yargs(hideBin(process.argv))
     "Manage configuration",
     (yargs) => {
       return yargs
+        .usage("usage: $0 config [<options>]")
         .option("get", {
+          alias: "g",
           describe: "get key value",
         })
         .positional("key", {
@@ -30,11 +33,16 @@ yargs(hideBin(process.argv))
         })
         .positional("value", {
           type: "string",
-        });
+        })
+        .requiresArg("get")
     },
     config
   )
   .strict()
+  .fail((msg, err, yargs) => {
+    console.log(msg || err.message);
+    console.log(yargs.help())
+  })
   .help()
   .alias("help", "h")
   .parse();
