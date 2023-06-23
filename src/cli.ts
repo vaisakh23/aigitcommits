@@ -35,15 +35,14 @@ yargs(hideBin(process.argv))
           type: "string",
         })
         .requiresArg("get")
-        .fail((msg, err, yargs) => {
-          console.log(msg);
-          // console.log(yargs.help())
-          console.log(err)
-        });
     },
     config
   )
   .strict()
+  .fail((msg, err, yargs) => {
+    console.log(msg || err.message);
+    console.log(yargs.help())
+  })
   .help()
   .alias("help", "h")
   .parse();
