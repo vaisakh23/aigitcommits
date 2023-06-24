@@ -9,7 +9,8 @@ const configParsers = {
   OPENAI_KEY(value: string) {
     if (!value) {
       CmdLogs.info(
-        "Please set your OpenAI API key first \nuse `gitcommit config <your token>`"
+        "Please set your OpenAI API key first",
+        "use `gitcommit config <your token>`"
       );
     }
     if (!value.startsWith("sk-")) {

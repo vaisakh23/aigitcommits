@@ -16,7 +16,7 @@ const config = async (args: any) => {
     await setConfigs(key, value);
     CmdLogs.success("Config added");
   } else {
-    CmdLogs.errMsg("Missing params \nusage: aigitcommit config <key> <value>");
+    CmdLogs.errMsg("Missing params", "usage: aigitcommit config <key> <value>");
   }
 };
 
