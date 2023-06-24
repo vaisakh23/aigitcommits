@@ -29,20 +29,21 @@ yargs(hideBin(process.argv))
         })
         .positional("key", {
           type: "string",
-          default: false
+          default: false,
         })
         .positional("value", {
           type: "string",
         })
-        .requiresArg("get")
+        .requiresArg("get");
     },
     config
   )
-  .strict()
   .fail((msg, err, yargs) => {
     console.log(msg || err.message);
-    console.log(yargs.help())
+    console.log(yargs.help());
+    process.exit(1);
   })
+  .strict()
   .help()
   .alias("help", "h")
   .parse();

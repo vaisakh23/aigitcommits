@@ -6,6 +6,9 @@ const config = async (args: any) => {
   if (get && validConfigKey(get)) {
     const config = await getConfig(get);
     CmdLogs.result(config[get] as string);
+  } else if (key && key.startsWith("sk-")) {
+    setConfigs("OPENAI_KEY", key);
+    CmdLogs.success("Config added");
   } else if (key && !validConfigKey(key)) {
     CmdLogs.errMsg(`Invalid config property: ${key}`);
   }

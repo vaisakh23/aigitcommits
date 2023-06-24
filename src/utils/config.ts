@@ -9,11 +9,11 @@ const configParsers = {
   OPENAI_KEY(value: string) {
     if (!value) {
       CmdLogs.errMsg(
-        "Please set your OpenAI API key via `gitcommit config OPENAI_KEY=<your token>`"
+        "Please set your OpenAI API key via `gitcommit config <your token>`"
       );
     }
-    if (!value.startsWith('sk-')) {
-      CmdLogs.errMsg("Please provide a valid Api key.")
+    if (!value.startsWith("sk-")) {
+      CmdLogs.errMsg("Please provide a valid Api key.");
     }
     return value;
   },

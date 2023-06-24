@@ -1,6 +1,11 @@
 import { getConfig } from "./config.js";
 
 export class CmdLogs {
+  static success(msg: string) {
+    console.log(msg);
+    process.exit(1);
+  }
+
   static commitMsg(msg: string) {
     console.log(msg);
   }
