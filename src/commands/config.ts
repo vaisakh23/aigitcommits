@@ -7,13 +7,14 @@ const config = async (args: any) => {
     const config = await getConfig(get);
     CmdLogs.result(config[get] as string);
   } else if (key && key.startsWith("sk-")) {
-    setConfigs("OPENAI_KEY", key);
+    await setConfigs("OPENAI_KEY", key);
     CmdLogs.success("Config added");
   } else if (key && !validConfigKey(key)) {
     CmdLogs.errMsg(`Invalid config property: ${key}`);
   }
   if (key && value) {
-    setConfigs(key, value);
+    await setConfigs(key, value);
+    CmdLogs.success("Config added");
   } else {
     CmdLogs.errMsg("Missing params \nusage: aigitcommit config <key> <value>");
   }
