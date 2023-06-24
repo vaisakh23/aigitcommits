@@ -8,8 +8,8 @@ const configPath = path.join(os.homedir(), ".gitcommit");
 const configParsers = {
   OPENAI_KEY(value: string) {
     if (!value) {
-      CmdLogs.errMsg(
-        "Please set your OpenAI API key via `gitcommit config <your token>`"
+      CmdLogs.info(
+        "Please set your OpenAI API key first \nuse `gitcommit config <your token>`"
       );
     }
     if (!value.startsWith("sk-")) {
