@@ -6,3 +6,7 @@ export const getStagedChanges = async () => {
 };
 
 export const stageAll = async () => await execa("git", ["add", "--all"]);
+
+export const commitWith = async (msg: string) => {
+  await execa("git", ["commit", "-m", msg]);
+};

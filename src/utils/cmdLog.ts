@@ -3,7 +3,6 @@ import { getConfig } from "./config.js";
 export class CmdLogs {
   static commitMsg(msg: string) {
     console.log(msg);
-    process.exit(1);
   }
 
   static result(msg: string) {
