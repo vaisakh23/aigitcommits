@@ -12,7 +12,7 @@ yargs(hideBin(process.argv))
     (yargs) => {
       return yargs.option("all", {
         alias: "a",
-        describe: "stage all files for commit",
+        describe: "Stage changes in files for the commit",
       });
     },
     gitcommits
@@ -25,7 +25,7 @@ yargs(hideBin(process.argv))
         .usage("usage: $0 config [<options>]")
         .option("get", {
           alias: "g",
-          describe: "get key value",
+          describe: "To get the config value for the given key",
         })
         .positional("key", {
           type: "string",
