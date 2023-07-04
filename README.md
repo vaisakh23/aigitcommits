@@ -3,6 +3,7 @@
     <h1 align="center">AiGitCommit</h1>
   </div>
 	<p>A CLI that generate git commit messages with openAi.</p>
+	<a href="https://www.npmjs.com/package/aigitcommit"><img src="https://img.shields.io/npm/v/aigitcommit" alt="Current version"></a>
 </div>
 
 ## Setup
