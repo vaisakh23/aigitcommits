@@ -1,6 +1,6 @@
 {
   "name": "aigitcommit",
-  "version": "1.1.1",
+  "version": "1.2.1",
   "description": "A CLI that generate git commit messages with openAi",
   "main": "dist/cli.js",
   "type": "module",
