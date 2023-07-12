@@ -6,13 +6,14 @@ const filesToExclude = [
   "package-lock.json",
   "pnpm-lock.yaml",
   "*.lock",
-  "swagger_output.json",
+  "public",
 ].map(excludeFromDiff);
 
 export const getStagedChanges = async () => {
   const { stdout: gitDiff } = await execa("git", [
     "diff",
     "--cached",
+    "--diff-algorithm=minimal",
     ...filesToExclude,
   ]);
   return gitDiff;

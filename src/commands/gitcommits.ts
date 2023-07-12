@@ -22,7 +22,6 @@ const gitcommits = async (args: any) => {
     CmdLogs.info("No commit messages were generated. Try again.");
     return;
   }
-  // CmdLogs.commitMsg(commit_msg);
   spinner.succeed(`commit msg: ${chalk.green(commit_msg)}`);
   const response = await prompts({
     type: "confirm",
